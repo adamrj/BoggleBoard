@@ -1,39 +1,14 @@
-from random import randrange
+from boggle_models import BoggleBoard
+from boggle_views import View
 
-letter_bank = [['A','A','E','E','G','N'],
-['A','B','B','J','O','O'],
-['A','C','H','O','P','S'],
-['A','F','F','K','P','S'],
-['A','O','O','T','T','W'],
-['C','I','M','O','T','U'],
-['D','E','I','L','R','X'],
-['D','E','L','R','V','Y'],
-['D','I','S','T','T','Y'],
-['E','E','G','H','N','W'],
-['E','E','I','N','S','U'],
-['E','H','R','T','V','W'],
-['E','I','O','S','S','T'],
-['E','L','R','T','T','Y'],
-['H','I','M','N','U','Qu'],
-['H','L','N','N','R','Z']]
+class Controller:
+	def __init__(self):
+		self.boggleboard = BoggleBoard()
+		self.view = View()
 
-board = []
-for i in range(0, 4):
-    sublist = []
-    for j in range(0, 4):
-        x = randrange(0, len(letter_bank))
-        y = randrange(0, 6)
-        sublist.append(letter_bank[x][y])
-        letter_bank.remove(letter_bank[x])
-    board.append(sublist)
+	def game_logic(self):
+		board = self.boggleboard.shake()
+		self.view.print_board(board)
 
-
-print (board)
-
-# x = randrange(0, 16)
-# y = randrange(0, 6)
-# print (letter_bank[x], letter_bank[x][y])
-# print (x, y)
-
-
-
+test = Controller()
+test.game_logic()
