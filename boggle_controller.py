@@ -17,16 +17,23 @@ letter_bank = [['A','A','E','E','G','N'],
 ['H','I','M','N','U','Qu'],
 ['H','L','N','N','R','Z']]
 
+board = []
 for i in range(0, 4):
-    board = []
-    board.append(sublist)
-    for i in range(0, 4):
-        x = randrange(17)
-        y = randrange(7)
-        sublist = []
+    sublist = []
+    for j in range(0, 4):
+        x = randrange(0, len(letter_bank))
+        y = randrange(0, 6)
         sublist.append(letter_bank[x][y])
+        letter_bank.remove(letter_bank[x])
+    board.append(sublist)
+
 
 print (board)
+
+# x = randrange(0, 16)
+# y = randrange(0, 6)
+# print (letter_bank[x], letter_bank[x][y])
+# print (x, y)
 
 
 
